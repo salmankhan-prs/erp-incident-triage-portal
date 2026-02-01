@@ -1,0 +1,33 @@
+{
+  "name": "erp-incident-triage-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "LOCAL=true tsx watch src/local.ts",
+    "db:setup": "LOCAL=true tsx src/scripts/setup-db.ts",
+    "deploy": "AWS_PROFILE=personal sst deploy",
+    "deploy:prod": "AWS_PROFILE=personal sst deploy --stage prod",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.679.0",
+    "@aws-sdk/lib-dynamodb": "^3.679.0",
+    "@hono/node-server": "^1.13.2",
+    "hono": "^4.6.7",
+    "openai": "^4.68.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "aws-cdk-lib": "^2.171.1",
+    "constructs": "^10.4.2",
+    "dotenv": "^16.4.5",
+    "sst": "^3.3.27",
+    "tsx": "^4.19.2",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
